@@ -35,3 +35,20 @@ new Promise(function (resolve) {
 })
 
 console.log('script end')
+
+/**
+ * 同步派发事件案例
+ */
+const btn = document.createElement('div');
+
+btn.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log(11));
+    console.log(1);
+})
+
+btn.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log(22));
+    console.log(2);
+})
+
+btn.click();

@@ -26,3 +26,10 @@ n.a.d = 5;
 n.b.c.t = 4;
 console.log(n.a.d, n.b.c.t)
 
+setTimeout(() => console.log(1));
+setTimeout(() => console.log(2));
+setTimeout(() => {
+  document.body.style.background = 'red';
+  console.log(3);
+});
+requestAnimationFrame(() => console.log('raf'));
