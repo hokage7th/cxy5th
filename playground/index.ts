@@ -1,5 +1,6 @@
 import { gasync } from "../demo/async-await";
 import { arrayObj, plainObj, nestObj, createProxy } from "../demo/proxy";
+import { cloneDeep } from "../demo/clone-deep";
 
 gasync(function *() {
   const a1 = yield Promise.resolve(1);
@@ -32,4 +33,20 @@ setTimeout(() => {
   document.body.style.background = 'red';
   console.log(3);
 });
-requestAnimationFrame(() => console.log('raf'));
+// requestAnimationFrame(() => console.log('raf'));
+
+const source = {
+  a: 1,
+  b: [2],
+  c: [{ a: 1 }],
+  d: new Date(),
+  e: new Map(),
+};
+
+const r = cloneDeep(source);
+
+r.b[0] = 5;
+r.c[0].a = 2;
+r.e.set('1', 2);
+
+console.log(r);
